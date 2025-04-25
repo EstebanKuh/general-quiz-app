@@ -4,6 +4,83 @@ Una aplicación web interactiva para poner a prueba tus conocimientos en diversa
 
 ---
 
+## 🚀 Características
+
+- ✅ Preguntas aleatorias desde API REST
+- ✅ Múltiples categorías y niveles de dificultad (en construcción)
+- ✅ Feedback visual inmediato sobre las respuestas
+- ✅ Puntuación final y revisión de preguntas
+- ✅ Estado global con Zustand
+- ✅ Tipado fuerte con TypeScript
+- ✅ Estilos responsive y UI amigable
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+- React
+- TypeScript
+- Vite
+- Zustand
+- React Router
+- Open Trivia DB (fuente de preguntas)
+
+---
+
+## 📸 Capturas de pantalla
+
+| Inicio | Pregunta en curso | Resultados |
+|--------|-------------------|------------|
+| <img src="screenshots/home.jpg" width="450" alt="home page"/> | <img src="screenshots/question_example.jpg" width="450" alt="question example page"/> | <img src="screenshots/results.jpg" width="450" alt="results page"/> |
+
+
+---
+
+## ⚙️ Instalación local
+
+1. Clonar repositorio:
+```bash
+  git clone https://github.com/EstebanKuh/general-quiz-app.git cd quiz-app
+```
+
+2. Instalar las dependencias:
+```bash
+  npm install
+```
+
+3. Iniciar la app:
+```bash
+  npm run dev
+```
+
+Abrir el navegador y poner la siguiente dirección url http://localhost:5173 para ver la app en el navegador.
+
+---
+
+## 📁 Estructura del proyecto
+
+```
+src/
+├── api/               # Llamadas a la API de preguntas
+├── components/        # Componentes reutilizables (botones, tarjetas)
+├── pages/quiz/        # Pantallas del quiz: inicio, juego, resultados
+├── hooks/             # Estado global con Zustand
+├── types/             # Tipos e interfaces en TypeScript
+├── utils/             # Funciones auxiliares (mezcla, decode)
+```
+---
+
+## 📈 Mejoras futuras
+
+- [ ] Mejora UI/UX
+- [ ] Soporte para selección de categorías y dificultad
+- [ ] Rankings de usuarios
+- [ ] Autenticación (login para guardar puntaje)
+- [ ] Multijugador en tiempo real
+- [ ] Animaciones con Framer Motion
+
+---
+
 ## 📄 Licencia
 
 Este proyecto está bajo la licencia MIT.  
