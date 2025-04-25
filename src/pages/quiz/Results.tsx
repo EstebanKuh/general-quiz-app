@@ -3,13 +3,14 @@ import he from "he";
 import { motion } from "framer-motion";
 import { useQuizStore } from "../../hooks/useQuizStore";
 import Button from "../../components/Button";
-
+import "../../styles/pages/Results.css"
 
 const Results = () => {
   const { answers, resetQuiz } = useQuizStore();
   const navigate = useNavigate();
 
   const score = answers.filter((a) => a.isCorrect).length;
+  const totalQuestions = answers.length;
 
   const handleRestart = () => {
     resetQuiz();
@@ -21,21 +22,32 @@ const Results = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="p-6 max-w-xl mx-auto bg-white shadow rounded"
+      className="results-container"
     >
-      <h1 className="text-2xl font-bold mb-4">🎉 Resultado Final</h1>
-      <p className="mb-4 text-lg">Obtuviste {score} de {answers.length} respuestas correctas.</p>
+      <div className="results-header">
+        <h1 className="results-title">🎉 Resultado Final</h1>
+        <p className="results-summary">Obtuviste <span className="score">{score}</span> de {totalQuestions} respuestas correctas.</p>
+      </div>
 
-      <ul className="mb-6 space-y-2">
+      <ul className="results-list">
         {answers.map((ans, idx) => (
-          <li key={idx} className={`p-2 border rounded ${ans.isCorrect ? "bg-green-100" : "bg-red-100"}`}>
-            <strong>{he.decode(ans.question)}</strong><br />
-            Tu respuesta: {he.decode(ans.selected)} <br />
-            Correcta: {he.decode(ans.correct)}
+          <li key={idx} className={`result-item ${ans.isCorrect ? "correct" : "incorrect"}`}>
+            <div className="question">
+              <strong>{he.decode(ans.question)}</strong>
+            </div>
+            <div className="answer">
+              <p><strong>Tu respuesta:</strong> {he.decode(ans.selected)}</p>
+              <p><strong>Respuesta correcta:</strong> {he.decode(ans.correct)}</p>
+            </div>
           </li>
         ))}
       </ul>
-      <Button onClick={handleRestart} variant="secondary">Volver a jugar</Button>
+
+      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <Button onClick={handleRestart} variant="secondary">
+          Volver a jugar
+        </Button>
+      </motion.div>
     </motion.div>
   );
 };
