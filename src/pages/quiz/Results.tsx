@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import he from "he";
+import { motion } from "framer-motion";
 import { useQuizStore } from "../../hooks/useQuizStore";
 import Button from "../../components/Button";
 
@@ -16,7 +17,12 @@ const Results = () => {
   };
 
   return (
-    <div className="p-6 max-w-xl mx-auto bg-white shadow rounded">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="p-6 max-w-xl mx-auto bg-white shadow rounded"
+    >
       <h1 className="text-2xl font-bold mb-4">🎉 Resultado Final</h1>
       <p className="mb-4 text-lg">Obtuviste {score} de {answers.length} respuestas correctas.</p>
 
@@ -29,12 +35,8 @@ const Results = () => {
           </li>
         ))}
       </ul>
-
-      {/* <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={handleRestart}>
-        Volver a jugar
-      </button> */}
       <Button onClick={handleRestart} variant="secondary">Volver a jugar</Button>
-    </div>
+    </motion.div>
   );
 };
 
