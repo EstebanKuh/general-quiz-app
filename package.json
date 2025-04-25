@@ -1,7 +1,7 @@
 {
   "name": "general-quiz-app",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Quiz de Cultura General hecho con React + TypeScript + Zustand + Vite",
   "type": "module",
   "author": "Esteban Kuh",
