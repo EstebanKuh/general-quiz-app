@@ -1,9 +1,10 @@
 import React from "react";
 import he from "he";
 import { motion } from "framer-motion";
+import Button from "./Button";
 import { PropsQuestionCard } from "../types";
 import { shuffle } from "../utils/shuffle";
-import Button from "./Button";
+import "../styles/components/QuestionCard.css";
 
 const QuestionCard: React.FC<PropsQuestionCard> = ({ question, onAnswer }) => {
   const answers = React.useMemo(() => {
@@ -16,16 +17,16 @@ const QuestionCard: React.FC<PropsQuestionCard> = ({ question, onAnswer }) => {
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded shadow-md p-6 max-w-xl mx-auto"
+      className="question-card"
     >
-        <h2 className="text-lg font-semibold mb-4">{he.decode(question.question)}</h2>
-        <div className="grid gap-3">
+        <h2 className="question">{he.decode(question.question)}</h2>
+        <div className="options">
           {answers.map((ans, idx) => (
             <Button
               key={idx}
               onClick={() => onAnswer(ans)}
               variant="primary"
-              className="w-full"
+              className="option-button"
             >
               {he.decode(ans)}
             </Button>
