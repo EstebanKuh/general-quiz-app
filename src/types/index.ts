@@ -47,3 +47,22 @@ export interface PropsQuestionCard {
   question: Question;
   onAnswer: (answer: string) => void;
 }
+
+/**
+ * API
+ */
+export interface APICategory {
+  id: number;
+  name: string;
+};
+export interface APIListStringResponse {
+  id: string;
+  name: string;
+};
+
+export interface APICategoryResponse {
+  trivia_categories: APICategory[];
+};
+
+export type QuizzDifficult = 'easy' | 'medium' | 'hard';
+export type QuizzType = 'multiple' | 'boolean';
