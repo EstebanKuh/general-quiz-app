@@ -27,13 +27,22 @@ export interface QuizState {
 }
 
 /**
- * Props
+ * HTML Components Props
 */
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary";
   children: React.ReactNode;
 }
 
+export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+  variant?: "primary" | "secondary";
+  items: APICategory[] | APIListStringResponse[];
+  children?: React.ReactNode;
+}
+
+/**
+ * Components Props
+ */
 export interface PropsQuestionCard {
   question: Question;
   onAnswer: (answer: string) => void;
