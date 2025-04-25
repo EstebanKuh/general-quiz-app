@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import he from "he";
 import { motion } from "framer-motion";
-import { useQuizStore } from "../../hooks/useQuizStore";
 import Button from "../../components/Button";
+import { useQuizStore } from "../../hooks/useQuizStore";
+import { clearQuizProgress } from "../../services/localStorage";
 import "../../styles/pages/Results.css"
 
 const Results = () => {
@@ -14,6 +15,7 @@ const Results = () => {
 
   const handleRestart = () => {
     resetQuiz();
+    clearQuizProgress();
     navigate("/");
   };
 
