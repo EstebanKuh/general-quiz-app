@@ -10,3 +10,5 @@ export const API_TYPE: APIListStringResponse[] = [
     { id: 'multiple', name: 'Opción Múltiple' },
     { id: 'boolean', name: 'Verdadero/Falso' }
 ];
+
+export const API_MAX_QUESTIONS: number = 20;
