@@ -1,12 +1,14 @@
+// src/components/Button.tsx
 import React from "react";
 import clsx from "clsx";
 import { ButtonProps } from "../types";
+import "../styles/components/Button.css";
 
-const base = "px-4 py-2 rounded font-medium transition";
+const base = "button-base";
 
 const variants = {
-  primary: "bg-blue-500 text-white hover:bg-blue-600",
-  secondary: "bg-gray-200 text-black hover:bg-gray-300",
+  primary: "button-primary",
+  secondary: "button-secondary"
 };
 
 const Button: React.FC<ButtonProps> = ({ variant = "primary", children, className, ...props }) => {
